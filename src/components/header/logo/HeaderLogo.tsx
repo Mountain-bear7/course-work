@@ -6,7 +6,7 @@ const HeaderLogo: FC = () => {
     return(
         <Column size={2}>
             <a href="/" className={styles.logoLink}>
-                <img src='src\assets\logo.png'
+                <img src='src/assets/logo.png'
                      width={120}
                      height={120}
                      alt="Eastern cuisine"
