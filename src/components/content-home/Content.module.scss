@@ -1,0 +1,43 @@
+.content{
+  @apply mt-0 w-full;
+  opacity: 40%;
+  position: absolute;
+
+}
+
+.contentRight{
+  width: 1315px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contentRightTop{
+  @apply text-7xl absolute bottom-0 top-0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 65px;
+  //width: 1090px;
+}
+.contentRightBottom{
+  @apply text-5xl;
+  margin-top: 300px;
+  padding-top: 20px;
+}
+
+.contentLeft{
+  @apply text-xl px-20;
+  margin-top: 140px;
+  display: block;
+}
+.contentBtn{
+  @apply mt-20;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+}
+.contentBtn:hover{
+  background-color: white;
+  color: black;
+  transition: all .3s;
+}
