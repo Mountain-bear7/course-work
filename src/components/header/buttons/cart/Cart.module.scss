@@ -1,0 +1,36 @@
+.wrapper-cart{
+  //@apply relative;
+  .heading{
+
+    .badge{
+      @apply flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-xs p-1 text-white absolute ml-8;
+    }
+  }
+}
+.cart{
+  @apply p-5;
+
+  .item{
+    //@apply mb-10 flex gap-8 items-center border-b border-b-['#f7f4f0'] pb-6 pt-4;
+    @apply mb-10 flex gap-4 items-center font-semibold
+  }
+
+  .name{
+    @apply max-w-full tracking-widest truncate;
+    //если вдруг будет появляется нижний ползунок, применить: whitespace-pre-wrap
+  }
+
+  .price{
+    //@apply mt-2 text-gray-400;
+    @apply text-sm mt-2 text-gray-400;
+  }
+}
+
+.footer{
+  >div:first-child{
+    @apply text-sm text-gray-400;
+  }
+  >div:last-child{
+    @apply text-xl font-semibold;
+  }
+}
