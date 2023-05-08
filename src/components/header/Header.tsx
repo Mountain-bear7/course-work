@@ -11,8 +11,8 @@ const Header: FC = () => {
             <header className={styles.header}>
                 <HeaderLogo/>
                 <HeaderMenu/>
-                <HeaderButtons/>
                 <HeaderProfile/>
+                <HeaderButtons/>
             </header>
         </div>
     )
