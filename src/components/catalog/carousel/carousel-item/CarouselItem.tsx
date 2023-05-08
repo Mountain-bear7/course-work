@@ -1,6 +1,7 @@
 import {FC} from "react";
 import {IProduct} from "../../../../types/product.interface";
 import styles from './Carousel.module.scss'
+import {formatMoney} from "../../../../utilities/format-money";
 
 const CarouselItem: FC<{product: IProduct}> = ({product}) => {
     return(
@@ -23,7 +24,7 @@ const CarouselItem: FC<{product: IProduct}> = ({product}) => {
                 </div>
 
                 <div className={styles.price}>
-                    Цена: {product.price} ₽
+                    Цена: {formatMoney(product.price)}
                 </div>
             </div>
         </div>
