@@ -2,8 +2,12 @@ import {FC} from "react";
 import {IProduct} from "../../../../types/product.interface";
 import styles from './Carousel.module.scss'
 import {formatMoney} from "../../../../utilities/format-money";
+import {useActions} from "../../../../hooks/useActions";
 
 const CarouselItem: FC<{product: IProduct}> = ({product}) => {
+
+    const {addToCart} = useActions()
+
     return(
         <div className={styles.wrapper}>
             <div className=''>
@@ -25,6 +29,19 @@ const CarouselItem: FC<{product: IProduct}> = ({product}) => {
 
                 <div className={styles.price}>
                     Цена: {formatMoney(product.price)}
+                </div>
+
+                <div className={styles.btnContainer}>
+                    <button className={styles.addBtn}
+                            onClick={() =>
+                                addToCart({
+                                    product,
+                                    quantity: 1
+                                })
+                            }
+                    >
+                        Add to cart
+                    </button>
                 </div>
             </div>
         </div>
