@@ -20,7 +20,8 @@
   //width: 400px;
   background-color: #131313;
   width: 300px;
-  height: 400px;
+  height: 420px;
+
 
   .image{
     @apply w-48 h-48 mx-auto;
@@ -42,5 +43,25 @@
   .price{
     //color: rgb(107 114 128);
     @apply text-center mt-2
+  }
+  .btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .addBtn{
+    @apply rounded-xl;
+    width: 120px;
+    margin-top: 15px;
+    padding: 5px;
+    border: 1px solid #ffffff;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+  .addBtn:hover{
+    background-color: white;
+    border: 1px solid #000;
+    color: black;
+    transition: all .3s;
   }
 }
