@@ -14,20 +14,18 @@ import {
     DrawerHeader,
     DrawerOverlay
 } from "@chakra-ui/react";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {formatMoney} from "../../../../utilities/format-money";
+import {useCart} from "../../../../hooks/useCart";
 const Cart: FC = () => {
     const [isOpen, setIsOpen] = useState(false)
     const btnRef = useRef<HTMLButtonElement>(null)
 
-    const cart = useTypedSelector(state => state.cart.items)
-
-    const total = cart.reduce((acc, item) => acc + item.product.price, 0)
+    const {cart, total} = useCart()
 
     return(
         <div className={styles['wrapper-cart']}>
             <div className={styles.heading} onClick={() => setIsOpen(!isOpen)}>
-                <span className={styles.badge}>1</span>
+                <span className={styles.badge}>{cart.length}</span>
                 <div>
                   <SquareButton Icon={BsCart3} onClick={() => {}}/>
                 </div>
@@ -46,9 +44,9 @@ const Cart: FC = () => {
 
                     <DrawerBody>
                         <div className={styles.cart}>
-                            {cart.map(item =>(
+                            {cart.length ? cart.map(item =>(
                                 <CartItem item={item} key={item.id}/>
-                            ))}
+                            )) : <div className='text-4xl text-center mt-60'>Cart is empty</div>}
                         </div>
                     </DrawerBody>
 
