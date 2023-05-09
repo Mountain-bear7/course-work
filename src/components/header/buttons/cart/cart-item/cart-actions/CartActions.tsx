@@ -5,6 +5,7 @@ import {AddIcon, MinusIcon} from "@chakra-ui/icons";
 //import {cartSlice} from "../../../../../../store/slice";
 import {ICartItem} from "../../../../../../types/cart-item.interface";
 import {useActions} from "../../../../../../hooks/useActions";
+import {useCart} from "../../../../../../hooks/useCart";
 
 const CartActions: FC<{item: ICartItem}> = ({item}) => {
     const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
@@ -18,7 +19,10 @@ const CartActions: FC<{item: ICartItem}> = ({item}) => {
     const dec = getDecrementButtonProps()
     const input = getInputProps()
 
-    const {removeFromCart} = useActions()
+    const {removeFromCart, changeQuantity} = useActions()
+
+    const {cart} = useCart()
+    const quantity = cart.find(cartItem => cartItem.id === item.id)?.quantity
 
     return(
         // maxW='320px'
@@ -30,6 +34,8 @@ const CartActions: FC<{item: ICartItem}> = ({item}) => {
                         _hover={{}}
                         fontSize={8}
                         size='sm'
+                        onClick={() => changeQuantity({id: item.id, type: 'minus'})}
+                        disabled={quantity === 1}
                 >
                     <MinusIcon color='white'/>
                 </Button>
@@ -42,6 +48,8 @@ const CartActions: FC<{item: ICartItem}> = ({item}) => {
                        width='47px'
                        size='md'
                        fontSize={12}
+                       value={quantity}
+                       //value={cart.find(cartItem => cartItem.id === item.id)?.quantity}
                 />
 
                 <Button {...inc}
@@ -50,6 +58,7 @@ const CartActions: FC<{item: ICartItem}> = ({item}) => {
                         _hover={{}}
                         fontSize={8}
                         size='sm'
+                        onClick={() => changeQuantity({id: item.id, type: 'plus'})}
                 >
                     <AddIcon color='white'/>
                 </Button>
