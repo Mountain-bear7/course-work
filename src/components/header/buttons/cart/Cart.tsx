@@ -1,5 +1,5 @@
 import React, {FC, useRef, useState} from "react";
-import {BsCart3} from "react-icons/all";
+import {BsCart3} from "react-icons/bs";
 import SquareButton from "../../../../ui/square-button-action/SquareButton";
 import styles from "./Cart.module.scss"
 import CartItem from "./cart-item/CartItem";

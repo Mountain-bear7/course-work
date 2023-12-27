@@ -1,7 +1,8 @@
 import {FC} from "react";
 import styles from "./HeaderButtons.module.scss"
 import SquareButton from "../../../ui/square-button-action/SquareButton";
-import {FiSearch, BsBell} from "react-icons/all";
+import {FiSearch} from "react-icons/fi";
+import {BsBell} from "react-icons/bs";
 import Cart from "./cart/Cart";
 
 const HeaderButtons: FC = () => {
